@@ -43,7 +43,6 @@ epi_reg --epi=${i}_faces_run1_dtvd --t1=${i}_t1w_c --t1brain=${i}_t1w_ss_U --out
 3dTstat -mean -prefix ${i}_faces_run1_mean ${i}_faces_run1_dtvdFr_06mm+orig
 3dClipLevel ${i}_faces_run1_dtvdFr_06mm+orig > clip.txt
 x="$(more clip.txt)"
-
 3dcalc -a ${i}_faces_run1_dtvdFr_06mm+orig -b ${i}_faces_run1_mean+orig -expr "(a/b*100)*step(b-$x)" -prefix ${i}_faces_run1_dtvdFr_06mm_perc+orig
 
 done
